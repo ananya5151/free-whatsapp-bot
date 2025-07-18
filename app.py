@@ -24,7 +24,7 @@ def get_ai_response(message):
     headers = {"Content-Type": "application/json"}
     
     try:
-        response = requests.post(HF_API_URL, headers=headers, json=payload, timeout=60)
+        response = requests.post(HF_API_URL, headers=headers, json=payload, timeout=180)
         response.raise_for_status()
         
         result = response.json()
