@@ -19,15 +19,17 @@ def get_ai_response(message):
     if not HF_API_URL:
         return "Error: Hugging Face API URL not set."
 
-    payload = {"data": [message]}
+    # This is the corrected payload format
+    payload = {"user_input": message}
     headers = {"Content-Type": "application/json"}
-
+    
     try:
         response = requests.post(HF_API_URL, headers=headers, json=payload, timeout=60)
-        response.raise_for_status() # Raise an exception for bad status codes
-
+        response.raise_for_status()
+        
         result = response.json()
-        ai_message = result.get("data", [])[0]
+        # The new API returns a 'response' key
+        ai_message = result.get("response", "Sorry, I got a strange reply.")
         return ai_message
 
     except requests.exceptions.RequestException as e:
