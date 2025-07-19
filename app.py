@@ -3,6 +3,7 @@ import requests
 import json
 from flask import Flask, request
 from dotenv import load_dotenv
+import google.generativeai as genai
 
 load_dotenv()
 
@@ -14,31 +15,21 @@ WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN")
 PHONE_NUMBER_ID = os.getenv("WHATSAPP_PHONE_NUMBER_ID")
 HF_API_URL = os.getenv("HF_API_URL") # Your Hugging Face API URL
 
+# This is the NEW function that uses the fast Google AI
 def get_ai_response(message):
-    """Calls the Hugging Face API to get a response."""
-    if not HF_API_URL:
-        return "Error: Hugging Face API URL not set."
+    """Calls the Google Gemini API to get a response."""
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+    if not GEMINI_API_KEY:
+        return "Error: Google AI API key not set."
 
-    # This is the corrected payload format
-    payload = {"user_input": message}
-    headers = {"Content-Type": "application/json"}
-    
     try:
-        response = requests.post(HF_API_URL, headers=headers, json=payload, timeout=180)
-        response.raise_for_status()
-        
-        result = response.json()
-        # The new API returns a 'response' key
-        ai_message = result.get("response", "Sorry, I got a strange reply.")
-        return ai_message
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error calling Hugging Face API: {e}")
-        return "Sorry, I'm having trouble connecting to my brain right now."
-    except (IndexError, KeyError) as e:
-        print(f"Error parsing Hugging Face response: {e}")
-        return "Sorry, I received an unusual response from my brain."
-
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel('gemini-1.5-flash') # Fast and powerful model
+        response = model.generate_content(message)
+        return response.text
+    except Exception as e:
+        print(f"Error calling Google AI API: {e}")
+        return "Sorry, my new Google brain seems to be offline."
 
 def send_whatsapp_message(to_number, message):
     """Sends a message back to the user via WhatsApp."""
