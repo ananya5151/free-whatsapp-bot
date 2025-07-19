@@ -23,8 +23,6 @@ A real-time, personal AI assistant on WhatsApp, powered by Google's Gemini API a
 
 ![WhatsApp Image 2025-07-19 at 23 58 40_ea49c8d1](https://github.com/user-attachments/assets/af36fbde-e345-4b3f-b14b-e57ba5de4c79)
 
-![WhatsApp Image 2025-07-19 at 23 58 40_1f97393f](https://github.com/user-attachments/assets/4e7f0226-0882-4b85-9bcf-4d79c1c72d9a)
-
 ---
 
 ## 🚀 Features
