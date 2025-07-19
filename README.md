@@ -21,7 +21,7 @@ A real-time, personal AI assistant on WhatsApp, powered by Google's Gemini API a
 
 ## ✨ Demo
 
-![WhatsApp Image 2025-07-19 at 23 58 40_ea49c8d1](https://github.com/user-attachments/assets/af36fbde-e345-4b3f-b14b-e57ba5de4c79)
+<img src="https://github.com/user-attachments/assets/af36fbde-e345-4b3f-b14b-e57ba5de4c79" alt="WhatsApp Bot Demo" width="400"/>
 
 ---
 
@@ -95,8 +95,10 @@ This project was a deep dive into real-world backend development and involved so
 * **Real-time Debugging:** Diagnosed and fixed a series of complex issues, including authentication failures (`401`), server errors (`404`, `422`), and timeouts (`500`), by analyzing live logs across multiple platforms.
 * **The "Middle Ground":** The final architecture using the Gemini API's free tier represents the optimal solution, balancing performance, intelligence, and cost.
 **microsoft/DialoGPT-small**
-  **Faults Earlier**
-  ![WhatsApp Image 2025-07-19 at 02 44 23_e213f537](https://github.com/user-attachments/assets/4006e6d3-2179-46d3-9a59-12c192dd7552)
+
+## Faults Earlier
+
+  <img src="https://github.com/user-attachments/assets/4006e6d3-2179-46d3-9a59-12c192dd7552" alt="Early model test" width="400"/>
 
 ---
 
