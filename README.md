@@ -99,9 +99,3 @@ This project was a deep dive into real-world backend development and involved so
 ## Faults Earlier
 
   <img src="https://github.com/user-attachments/assets/4006e6d3-2179-46d3-9a59-12c192dd7552" alt="Early model test" width="400"/>
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
